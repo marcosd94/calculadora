@@ -57,8 +57,8 @@ document.getElementById('calcular').addEventListener('click', function() {
             <h4>Precio por Bulto</h4>
             <strong>Precio Inicial:</strong> Gs. ${formatCurrency(precio)} <br>
             <strong>Descuento:</strong> Gs. ${formatCurrency(descuento)} <br>
-            <strong>Cantidad de Puntos por Segmento:</strong> ${puntosAcumuladosSegmentoUnitario} (Valor en Gs.: ${formatCurrency(valorPuntosSegmentoUnitario)}) <br>
-            <strong>Cantidad de Puntos por Desafíos:</strong> ${puntosDesafios} (Valor en Gs.: ${formatCurrency(valorPuntosDesafiosUnitario)}) <br>
+            <strong>Puntos por Compra:</strong> ${puntosAcumuladosSegmentoUnitario} (Valor en Gs.: ${formatCurrency(valorPuntosSegmentoUnitario)}) <br>
+            <strong>Puntos por Desafíos:</strong> ${puntosDesafios} (Valor en Gs.: ${formatCurrency(valorPuntosDesafiosUnitario)}) <br>
             <strong class="highlight">Precio Final Unitario: Gs. ${formatCurrency(precioFinalUnitario)}</strong>
         `;
         
@@ -66,9 +66,9 @@ document.getElementById('calcular').addEventListener('click', function() {
             <h4>Costo Total</h4>
             <strong>Total Compra:</strong> Gs. ${formatCurrency(totalCompra)} <br>
             <strong>Descuento Total:</strong> Gs. ${formatCurrency(descuento * cantidadCompra)} <br>
-            <strong>Cantidad de Compra:</strong> ${cantidadCompra} unidades <br>
-            <strong>Cantidad de Puntos por Segmento:</strong> ${puntosAcumuladosSegmentoTotal} (Valor en Gs.: ${formatCurrency(valorPuntosSegmentoTotal)}) <br>
-            <strong>Cantidad Total de Puntos por Desafíos:</strong> ${totalPuntosDesafios} (Valor en Gs.: ${formatCurrency(valorTotalPuntosDesafios)}) <br>
+            <strong>Bultos de Compra:</strong> ${cantidadCompra} unidades <br>
+            <strong>Puntos por Compra:</strong> ${puntosAcumuladosSegmentoTotal} (Valor en Gs.: ${formatCurrency(valorPuntosSegmentoTotal)}) <br>
+            <strong>Puntos por Desafíos:</strong> ${totalPuntosDesafios} (Valor en Gs.: ${formatCurrency(valorTotalPuntosDesafios)}) <br>
             <strong class="highlight">Precio Final Total: Gs. ${formatCurrency(precioFinalTotal)}</strong>
         `;
     } else {

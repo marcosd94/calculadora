@@ -3,7 +3,6 @@ const urlsToCache = [
     '/',
     '/index.html',
     '/script.js',
-    '/styles.css',
     '/manifest.json',
     'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css'
 ];
