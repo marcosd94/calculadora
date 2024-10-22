@@ -5,72 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Precios</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="styles.css">
     <style>
-        body {
-            background-color: #f8f9fa;
-            font-family: Arial, sans-serif;
-        }
-        .container {
-            margin-top: 50px;
-            max-width: 600px;
-        }
-        .card {
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        .result {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 5px;
-        }
-        .unitario {
-            background-color: #e1f7d5;
-            border-left: 5px solid #28a745;
-        }
-        .total {
-            background-color: #fce4ec;
-            border-left: 5px solid #dc3545;
-        }
-        .highlight {
-            font-size: 1.5em;
-            color: #dc3545;
-        }
+        /* (tu CSS aquí) */
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="card">
-            <h2 class="text-center">Calculadora de Precios</h2>
-            <div class="form-group">
-                <label for="precio">Precio Actual (Gs.):</label>
-                <input type="text" class="form-control" id="precio" placeholder="Ej: 100000" required>
-            </div>
-            <div class="form-group">
-                <label for="descuento">Descuento (Gs.):</label>
-                <input type="text" class="form-control" id="descuento" placeholder="Ej: 50000" required>
-            </div>
-            <div class="form-group">
-                <label for="cantidadCompra">Cantidad de Compra (unidades):</label>
-                <input type="number" class="form-control" id="cantidadCompra" placeholder="Ej: 10" min="0" required>
-            </div>
-            <div class="form-group">
-                <label for="segmento">Segmento de Producto:</label>
-                <select class="form-control" id="segmento">
-                    <option value="RETORNABLES">RETORNABLES</option>
-                    <option value="CORE CANS">CORE CANS</option>
-                    <option value="CORE+">CORE+</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="puntosDesafios">Puntos por Desafíos:</label>
-                <input type="number" class="form-control" id="puntosDesafios" placeholder="Ej: 10" min="0">
-            </div>
-            <button class="btn btn-primary btn-block" id="calcular">Calcular</button>
-            <div class="result unitario" id="resultadoUnitario"></div>
-            <div class="result total" id="resultadoTotal"></div>
-        </div>
+        <!-- (contenido aquí) -->
     </div>
     <script src="script.js"></script>
+    <script>
+        // Registrar el service worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('service-worker.js')
+                    .then(reg => console.log('Service Worker registrado', reg))
+                    .catch(err => console.log('Error al registrar el Service Worker', err));
+            });
+        }
+    </script>
 </body>
 </html>
