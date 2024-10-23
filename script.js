@@ -1,9 +1,10 @@
 document.getElementById('calcular').addEventListener('click', function() {
-    const precio = parseFloat(document.getElementById('precio').value.replace(/\./g, '').replace(/,/g, '.'));
-    const descuento = parseFloat(document.getElementById('descuento').value.replace(/\./g, '').replace(/,/g, '.'));
-    const cantidadCompra = parseInt(document.getElementById('cantidadCompra').value) || 0;
+    const precio = parseFloat(document.getElementById('precio').value);
+    const descuento = parseFloat(document.getElementById('descuento').value) || 0; // Tomar 0 si no se ingresa un valor
     const segmento = document.getElementById('segmento').value;
-    const puntosDesafios = parseInt(document.getElementById('puntosDesafios').value) || 0;
+    const cantidadCompra = parseInt(document.getElementById('cantidadCompra').value) || 0;
+    const puntosDesafios = parseInt(document.getElementById('puntosDesafios').value) || 0; // Tomar 0 si no se ingresa un valor
+
 
     if (!isNaN(precio) && !isNaN(descuento) && cantidadCompra >= 0) {
         // Calcular el precio total antes del descuento
@@ -75,4 +76,15 @@ document.getElementById('calcular').addEventListener('click', function() {
         document.getElementById('resultadoUnitario').innerText = "Por favor, ingrese todos los valores correctamente.";
         document.getElementById('resultadoTotal').innerText = "";
     }
+});
+
+
+// Agregar evento para el botón de limpiar
+document.getElementById('limpiar').addEventListener('click', function() {
+    document.getElementById('precio').value = '';
+    document.getElementById('descuento').value = '';
+    document.getElementById('cantidadCompra').value = '';
+    document.getElementById('puntosDesafios').value = '';
+    document.getElementById('resultadoUnitario').innerHTML = '';
+    document.getElementById('resultadoTotal').innerHTML = '';
 });

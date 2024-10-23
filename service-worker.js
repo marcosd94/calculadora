@@ -4,7 +4,8 @@ const urlsToCache = [
     '/index.html',
     '/script.js',
     '/manifest.json',
-    'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css'
+    'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css',
+    'https://kit.fontawesome.com/a076d05399.js'
 ];
 
 // Instalación del service worker
