@@ -4,6 +4,7 @@ document.getElementById('calcular').addEventListener('click', function() {
     const segmento = document.getElementById('segmento').value;
     const cantidadCompra = parseInt(document.getElementById('cantidadCompra').value) || 0;
     const puntosDesafios = parseInt(document.getElementById('puntosDesafios').value) || 0; // Tomar 0 si no se ingresa un valor
+	const gs_por_puntos = 10,57;
 
 
     if (!isNaN(precio) && !isNaN(descuento) && cantidadCompra >= 0) {
@@ -38,16 +39,16 @@ document.getElementById('calcular').addEventListener('click', function() {
 
         // Cálculos para resultados unitarios
         const puntosAcumuladosSegmentoUnitario = Math.floor(precio / 10000) * puntosPorSegmento;
-        const valorPuntosSegmentoUnitario = puntosAcumuladosSegmentoUnitario * 10; // Cada punto equivale a 10 guaraníes
-        const valorPuntosDesafiosUnitario = puntosDesafios * 10; // Cada punto por desafío equivale a 10 guaraníes
+        const valorPuntosSegmentoUnitario = puntosAcumuladosSegmentoUnitario * gs_por_puntos; // Cada punto equivale a 10 guaraníes
+        const valorPuntosDesafiosUnitario = puntosDesafios * gs_por_puntos; // Cada punto por desafío equivale a 10 guaraníes
         const precioFinalUnitario = precio - descuento - valorPuntosSegmentoUnitario - valorPuntosDesafiosUnitario;
 
         // Resultados Totales
         const puntosAcumuladosSegmentoTotal = Math.floor(precioConDescuento / 10000) * puntosPorSegmento;
-        const valorPuntosSegmentoTotal = puntosAcumuladosSegmentoTotal * 10; // Cada punto equivale a 10 guaraníes
-        const valorPuntosDesafiosTotal = puntosDesafios * 10; // Cada punto por desafío equivale a 10 guaraníes
+        const valorPuntosSegmentoTotal = puntosAcumuladosSegmentoTotal * gs_por_puntos; // Cada punto equivale a 10 guaraníes
+        const valorPuntosDesafiosTotal = puntosDesafios * gs_por_puntos; // Cada punto por desafío equivale a 10 guaraníes
         const totalPuntosDesafios = puntosDesafios * cantidadCompra; // Total de puntos por desafíos
-        const valorTotalPuntosDesafios = totalPuntosDesafios * 10; // Conversión a guaraníes
+        const valorTotalPuntosDesafios = totalPuntosDesafios * gs_por_puntos; // Conversión a guaraníes
         const precioFinalTotal = precioConDescuento - valorPuntosSegmentoTotal - valorTotalPuntosDesafios;
 
         // Función para formatear números con separadores de miles
