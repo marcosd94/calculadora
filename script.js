@@ -4,7 +4,7 @@ document.getElementById('calcular').addEventListener('click', function() {
     const segmento = document.getElementById('segmento').value;
     const cantidadCompra = parseInt(document.getElementById('cantidadCompra').value) || 0;
     const puntosDesafios = parseInt(document.getElementById('puntosDesafios').value) || 0; // Tomar 0 si no se ingresa un valor
-	const gs_por_puntos = 10,57;
+	const gs_por_puntos = 10.57;
 
 
     if (!isNaN(precio) && !isNaN(descuento) && cantidadCompra >= 0) {
