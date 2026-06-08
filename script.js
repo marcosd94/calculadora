@@ -27,10 +27,16 @@ document.getElementById('calcular').addEventListener('click', function() {
             case "RETORNABLES":
                 puntosPorSegmento = 2; // 2 puntos por cada 10,000
                 break;
+            case "BUC_269":
+                puntosPorSegmento = 2; // 2 puntos por cada 10,000
+                break;
             case "CORE CANS":
                 puntosPorSegmento = 5; // 5 puntos por cada 10,000
                 break;
-            case "CORE+":
+            case "MICH_SKOL":
+                puntosPorSegmento = 5; // 5 puntos por cada 10,000
+                break;
+            case "PREMIUM":
                 puntosPorSegmento = 10; // 10 puntos por cada 10,000
                 break;
             default:
