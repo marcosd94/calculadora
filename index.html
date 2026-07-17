@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="icon" type="image/x-icon" href="favicon.ico">
     <title>Calculadora de Precios</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="manifest" href="manifest.json">
     <style>
         body {
@@ -35,6 +37,10 @@
             padding: 15px;
             border-radius: 5px;
         }
+        .litros {
+            background-color: #334bb530;
+            border-left: 5px solid #164063;
+        }
         .unitario {
             background-color: #e1f7d5;
             border-left: 5px solid #28a745;
@@ -58,6 +64,72 @@
                 padding: 15px;
             }
         }
+		.form-control_checkbox {
+		  font-family: system-ui, sans-serif;
+		  
+		  font-size: 2rem;
+		  /*font-weight: bold;*/
+		  line-height: 1.1;
+		  display: grid;
+		  grid-template-columns: 1em auto;
+		  gap: 0.5em;
+		}
+		.form-control_checkbox + .form-control_checkbox {
+		  margin-top: 1em;
+		}
+		
+		
+		input[type="checkbox"] {
+		  /* Add if not using autoprefixer */
+		  -webkit-appearance: none;
+		  appearance: none;
+		  /* For iOS < 15 to remove gradient background */
+		  background-color: #fff;
+		  /* Not removed via appearance */
+		  margin: 0;
+		  font: inherit;
+		  color: currentColor;
+		  width: 1.15em;
+		  height: 1.15em;
+		  border: 0.15em solid currentColor;
+		  border-radius: 0.15em;
+		  transform: translateY(-0.075em);
+		  
+    vertical-align: middle;
+		  
+		  
+
+		  display: grid;
+		  place-content: center;
+		}
+		
+		input[type="checkbox"]::before {
+		  content: "";
+		  width: 0.65em;
+		  height: 0.65em;
+		  transform: scale(0);
+		  transition: 120ms transform ease-in-out;
+		  box-shadow: inset 1em 1em var(--form-control-color);
+		  
+		  
+		  /* Windows High Contrast Mode */
+		  background-color: CanvasText;
+		  
+		  
+		  transform-origin: bottom left;
+		  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+		}
+		
+		
+		input[type="checkbox"]:checked::before {
+		  transform: scale(1);
+		  
+		}
+		
+		input[type="checkbox"]:focus {
+		  outline: max(2px, 0.15em) solid currentColor;
+		  outline-offset: max(2px, 0.15em);
+		}
     </style>
 </head>
 <body>
@@ -67,17 +139,38 @@
     <div class="container">
         <div class="card">
             <div class="form-group">
-                <label for="precio">Precio Actual (Gs.):</label>
-                <input type="text" class="form-control" id="precio" placeholder="Ej: 100000" required>
+			
+				<div class="row">				  
+					<div class="col-xs-6">
+						<label for="precio">Precio(Gs.):</label>
+						<input type="text" class="form-control" id="precio" placeholder="33.000" required>
+					</div>	
+							  
+					<div class="col-xs-6">						
+						<label for="descuento">Descuento (Gs.):</label>
+						<input type="text" class="form-control" id="descuento" placeholder="1.000" required>
+					</div>	
+				</div>
             </div>
             <div class="form-group">
-                <label for="descuento">Descuento (Gs.):</label>
-                <input type="text" class="form-control" id="descuento" placeholder="Ej: 50000" required>
-            </div>
-            <div class="form-group">
-                <label for="cantidadCompra">Bultos de Compra (unidades):</label>
-                <input type="number" class="form-control" id="cantidadCompra" placeholder="Ej: 10" min="0" required>
-            </div>
+              <div class="row">
+					<div class="col-xs-6">					
+					<label   for="cantidadCompra">Bultos(unid):</label>
+					<input type="number" class="form-control" id="cantidadCompra" placeholder="Ej: 10" min="0" required>
+					</div>		  
+					<div class="col-xs-6" style="margin-top: 6%;
+">
+					
+					<label class="form-control_checkbox">
+					  <input type="checkbox" name="checkbox-checked"  id="base_foco" />
+					  Base Foco
+					</label>
+					</div>
+				</div>          
+
+			  </div>
+			
+            
             <div class="form-group">
                 <label for="segmento">Segmento de Producto:</label>
                 <select class="form-control" id="segmento">
@@ -96,6 +189,7 @@
             <button class="btn btn-secondary btn-block" id="limpiar">
                 <i class="fas fa-trash-alt"></i> Limpiar
             </button>
+            <div class="result litros" id="resultadoLitros"></div>
             <div class="result unitario" id="resultadoUnitario"></div>
             <div class="result total" id="resultadoTotal"></div>
         </div>
